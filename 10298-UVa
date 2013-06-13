@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    string s;
+    cin >> s;
+
+    while(s.compare(".")){
+        string a = "", b = "";
+        int tam = 1, p=0;
+        bool exit = false;
+
+        while(tam <= s.length()){
+            p=0;
+            exit = false;
+            a = s.substr(0,tam);
+
+
+            do{
+                p++;
+                b = s.substr(p*tam, tam);
+                cout << "a = " << a << " e b = " << b << "\n";
+                if(a != b){
+                    exit = true;
+                }
+            }while((p*tam+tam) < s.length() && !exit);
+
+            tam++;
+        }
+
+        cout << s.length()/p << "\n";
+
+        cin >> s;
+    }
+}
